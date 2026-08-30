@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c2f35">
+  <meta name="description" content="الأسد لخدمات التنظيف والتعقيم ومكافحة الحشرات في الإمارات">
+  <title>الأسد | تنظيف وتعقيم ومكافحة حشرات</title>
+  <style>
+    :root {
+      --ink: #10353a;
+      --ink-soft: #46676a;
+      --teal: #0b5e61;
+      --teal-dark: #083f45;
+      --mint: #d9f2e7;
+      --lime: #b8dd63;
+      --cream: #fffaf0;
+      --paper: #fffdf8;
+      --line: rgba(16, 53, 58, .12);
+      --shadow: 0 28px 70px rgba(4, 42, 43, .18);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(184, 221, 99, .3) 0 8%, transparent 22%),
+        radial-gradient(circle at 95% 84%, rgba(217, 242, 231, .8) 0 8%, transparent 25%),
+        #edf4ed;
+      color: var(--ink);
+      font-family: Tahoma, Arial, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .page {
+      min-height: 100vh;
+      padding: clamp(18px, 4vw, 54px) 16px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .flyer {
+      position: relative;
+      isolation: isolate;
+      width: min(100%, 1000px);
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .flyer::before,
+    .flyer::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .flyer::before {
+      width: 310px;
+      height: 310px;
+      top: -175px;
+      left: -115px;
+      border: 44px solid rgba(184, 221, 99, .38);
+    }
+
+    .flyer::after {
+      width: 200px;
+      height: 200px;
+      right: -90px;
+      bottom: 105px;
+      border: 30px solid rgba(217, 242, 231, .75);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.24fr) minmax(260px, .76fr);
+      gap: 30px;
+      padding: clamp(27px, 5vw, 62px);
+      background:
+        linear-gradient(118deg, rgba(8, 63, 69, .97), rgba(11, 94, 97, .92)),
+        var(--teal-dark);
+      color: #fff;
+    }
+
+    .hero::before {
+      content: "✦";
+      position: absolute;
+      top: 16px;
+      right: 43%;
+      color: rgba(184, 221, 99, .7);
+      font-size: 3rem;
+      transform: rotate(18deg);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      color: var(--lime);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--lime);
+      border-radius: 99px;
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 590px;
+      margin-bottom: 16px;
+      font-size: clamp(2.1rem, 5.5vw, 4.5rem);
+      line-height: 1.12;
+      letter-spacing: -.05em;
+    }
+
+    .hero-copy {
+      max-width: 530px;
+      margin-bottom: 23px;
+      color: rgba(255, 255, 255, .78);
+      font-size: clamp(.98rem, 2vw, 1.12rem);
+    }
+
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 13px;
+      border: 1px solid rgba(255, 255, 255, .2);
+      border-radius: 99px;
+      color: #e7f6e8;
+      font-size: .9rem;
+    }
+
+    .location svg { width: 17px; height: 17px; color: var(--lime); }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 11px 19px;
+      border-radius: 13px;
+      font-size: .96rem;
+      font-weight: 700;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn svg { width: 19px; height: 19px; }
+
+    .btn-primary {
+      background: var(--lime);
+      color: var(--ink);
+      box-shadow: 0 9px 20px rgba(0,0,0,.13);
+    }
+
+    .btn-primary:hover { box-shadow: 0 12px 26px rgba(0,0,0,.22); }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,.25);
+      color: #fff;
+      background: rgba(255,255,255,.08);
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,.16); }
+
+    .seal {
+      position: relative;
+      align-self: center;
+      justify-self: end;
+      width: min(100%, 270px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      background: rgba(3, 45, 50, .26);
+      box-shadow: inset 0 0 0 13px rgba(255,255,255,.035);
+      text-align: center;
+    }
+
+    .seal::before,
+    .seal::after {
+      content: "";
+      position: absolute;
+      border: 1px dashed rgba(184,221,99,.65);
+      border-radius: 50%;
+    }
+
+    .seal::before { inset: 20px; }
+    .seal::after { inset: 38px; border-style: solid; border-color: rgba(255,255,255,.12); }
+
+    .seal-inner { position: relative; z-index: 1; padding: 28px; }
+
+    .lion {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--lime);
+      font-size: 3.7rem;
+      line-height: 1;
+      filter: drop-shadow(0 4px 4px rgba(0,0,0,.15));
+    }
+
+    .seal strong {
+      display: block;
+      font-size: 1.2rem;
+      letter-spacing: .08em;
+    }
+
+    .seal small { color: rgba(255,255,255,.7); font-size: .77rem; }
+
+    .content {
+      padding: clamp(24px, 5vw, 53px);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      max-width: 360px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: .9rem;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 42px;
+    }
+
+    .service {
+      min-height: 145px;
+      padding: 17px 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.66);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-4px);
+      border-color: rgba(11,94,97,.3);
+      box-shadow: 0 12px 24px rgba(8,63,69,.08);
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      background: var(--mint);
+      color: var(--teal);
+    }
+
+    .service-icon svg { width: 23px; height: 23px; }
+    .service h3 { margin: 0 0 3px; font-size: .97rem; }
+    .service p { margin: 0; color: var(--ink-soft); font-size: .77rem; line-height: 1.5; }
+
+    .promise {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 15px;
+      border-radius: 17px;
+      background: #f3f8ef;
+    }
+
+    .check {
+      flex: 0 0 auto;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-weight: bold;
+      font-size: .79rem;
+    }
+
+    .feature strong { display: block; margin-bottom: 1px; font-size: .9rem; }
+    .feature span { color: var(--ink-soft); font-size: .75rem; line-height: 1.5; }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 27px;
+      border-radius: 22px;
+      background: var(--cream);
+      border: 1px solid rgba(184,221,99,.45);
+    }
+
+    .contact-card .mini-label {
+      margin-bottom: 6px;
+      color: var(--teal);
+      font-size: .77rem;
+      font-weight: 700;
+    }
+
+    .contact-card h2 {
+      margin-bottom: 10px;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      line-height: 1.3;
+    }
+
+    .phone-number {
+      direction: ltr;
+      display: block;
+      margin-bottom: 16px;
+      color: var(--teal-dark);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
+
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+
+    .contact-actions .btn { min-height: 43px; padding: 9px 14px; font-size: .86rem; }
+
+    .btn-call { background: var(--teal); color: #fff; }
+    .btn-whatsapp { background: #25d366; color: #063d28; }
+    .btn-call:hover { background: var(--teal-dark); }
+    .btn-whatsapp:hover { background: #1ebe5d; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 18px clamp(24px, 5vw, 53px) 23px;
+      border-top: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: .75rem;
+    }
+
+    .designer {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .designer:hover { text-decoration: underline; }
+    .heart { color: #e97c67; }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; gap: 25px; }
+      .seal { justify-self: start; width: 185px; }
+      .seal::before { inset: 15px; }
+      .seal::after { inset: 29px; }
+      .lion { font-size: 2.6rem; }
+      .seal strong { font-size: 1rem; }
+      .seal small { font-size: .67rem; }
+      .services { grid-template-columns: 1fr 1fr; }
+      .promise { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 460px) {
+      .page { padding: 0; }
+      .flyer { border-radius: 0; }
+      .hero { padding: 31px 22px 27px; }
+      .hero::before { right: 12%; }
+      h1 { font-size: 2.35rem; }
+      .hero-actions .btn { flex: 1 1 100%; }
+      .content { padding: 28px 20px; }
+      .section-heading { display: block; }
+      .section-heading h2 { margin-bottom: 6px; }
+      .services { gap: 9px; margin-bottom: 30px; }
+      .service { min-height: 137px; padding: 14px 11px; }
+      .service-icon { width: 37px; height: 37px; margin-bottom: 9px; }
+      .service h3 { font-size: .85rem; }
+      .service p { font-size: .68rem; }
+      .features { grid-template-columns: 1fr; gap: 9px; }
+      .contact-card { padding: 22px 18px; }
+      .contact-actions .btn { flex: 1; }
+      footer { align-items: flex-start; flex-direction: column; padding: 17px 20px 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="flyer">
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">نظافة • تعقيم • حماية</p>
+          <h1>الأسد لخدمات التنظيف والتعقيم ومكافحة الحشرات</h1>
+          <p class="hero-copy">نمنح منزلك عناية تليق به، من التنظيف المتقن إلى التعقيم ومكافحة الحشرات بحلول عملية واهتمام بكل تفصيلة.</p>
+          <span class="location">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+              <circle cx="12" cy="10" r="2.5"></circle>
+            </svg>
+            نخدمكم في الإمارات العربية المتحدة
+          </span>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+971555117726" aria-label="الاتصال بالأسد على الرقم 0555117726">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"></path>
+              </svg>
+              اتصل الآن
+            </a>
+            <a class="btn btn-ghost" href="https://wa.me/971555117726" target="_blank" rel="noopener" aria-label="التواصل مع الأسد عبر واتساب">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.5 4.1 1.5 5.9L.1 24l6.3-1.6a12 12 0 0 0 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.3-6.2-3.5-8.4Z"></path>
+                <path d="M8.8 6.8c.2-.4.4-.4.8-.4h.6c.2 0 .5.1.6.5l.8 1.9c.1.3.1.5-.1.7l-.6.8c-.2.2-.3.4-.1.7.3.6 1.1 1.7 2.4 2.5 1.6 1 1.6.7 2 .6.3-.1.5-.7.8-1 .2-.3.4-.3.8-.2l2.1 1c.3.1.5.2.5.5s-.1 1.1-.5 1.4c-.4.4-1.1.7-1.8.7s-2.3-.3-3.8-1.3c-1.5-.9-2.8-2.2-3.7-3.6C5.8 10.2 6 9 6 8.6c0-.7.4-1.4.8-1.8Z"></path>
+              </svg>
+              واتساب
+            </a>
+          </div>
+        </div>
+
+        <div class="seal" aria-label="الأسد لخدمات التنظيف">
+          <div class="seal-inner">
+            <span class="lion" aria-hidden="true">♛</span>
+            <strong>الأسد</strong>
+            <small>نظافة بثقة وحماية تدوم</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="content">
+        <div class="section-heading">
+          <h2>خدماتنا الأساسية</h2>
+          <p>كل ما يحتاجه بيتك ليبقى أنظف، أهدأ وأكثر راحة.</p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6 21h12M8 21V9h8v12M10 9V5h4v4M7 5h10M5 13h3m8 0h3M5 17h3m8 0h3"></path>
+              </svg>
+            </div>
+            <h3>تنظيف المنازل</h3>
+            <p>تنظيف عملي ينعش كل ركن.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M12 3s7 6.2 7 11a7 7 0 1 1-14 0c0-4.8 7-11 7-11Z"></path>
+                <path d="M9 15.5a3.5 3.5 0 0 0 3 2"></path>
+              </svg>
+            </div>
+            <h3>تنظيف الخزانات</h3>
+            <p>عناية بخزانات المياه ونظافتها.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M4 18h16M6 18V8l6-4 6 4v10M9 18v-5h6v5M3 21h18"></path>
+              </svg>
+            </div>
+            <h3>التعقيم</h3>
+            <p>لمسة نظافة وطمأنينة للمكان.</p>
+          </article>
+          <article class="service">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M8 5h8M9 3h6M7 8h10l1 13H6L7 8Z"></path>
+                <path d="m10 12 1.5 1.5L15 10"></path>
+              </svg>
+            </div>
+            <h3>مكافحة الحشرات</h3>
+            <p>حلول لحماية منزلك من الحشرات.</p>
+          </article>
+        </div>
+
+        <div class="promise">
+          <div>
+            <div class="section-heading">
+              <h2>لماذا الأسد؟</h2>
+            </div>
+            <div class="features">
+              <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                  <strong>عناية بالتفاصيل</strong>
+                  <span>نهتم بنظافة المكان من الكبير إلى الصغير.</span>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                  <strong>خدمة مريحة</strong>
+                  <span>حلول مناسبة لاحتياج منزلك بكل سهولة.</span>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                  <strong>نتيجة تلاحظها</strong>
+                  <span>تنظيف وتعقيم يمنحانك إحساسًا بالانتعاش.</span>
+                </div>
+              </div>
+              <div class="feature">
+                <span class="check">✓</span>
+                <div>
+                  <strong>تواصل مباشر</strong>
+                  <span>اتصل بنا وابدأ ترتيب خدمتك الآن.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="contact-card">
+            <span class="mini-label">للحجز والاستفسار</span>
+            <h2>بيتك يستحق عناية الأسد</h2>
+            <a class="phone-number" href="tel:+971555117726">0555117726</a>
+            <div class="contact-actions">
+              <a class="btn btn-call" href="tel:+971555117726">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L8 9.73a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z"></path>
+                </svg>
+                اتصال
+              </a>
+              <a class="btn btn-whatsapp" href="https://wa.me/971555117726" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.5 0 .2 5.3.2 11.9c0 2.1.5 4.1 1.5 5.9L.1 24l6.3-1.6a12 12 0 0 0 5.7 1.4h.1c6.5 0 11.8-5.3 11.8-11.9 0-3.2-1.3-6.2-3.5-8.4Z"></path>
+                  <path d="M8.8 6.8c.2-.4.4-.4.8-.4h.6c.2 0 .5.1.6.5l.8 1.9c.1.3.1.5-.1.7l-.6.8c-.2.2-.3.4-.1.7.3.6 1.1 1.7 2.4 2.5 1.6 1 1.6.7 2 .6.3-.1.5-.7.8-1 .2-.3.4-.3.8-.2l2.1 1c.3.1.5.2.5.5s-.1 1.1-.5 1.4c-.4.4-1.1.7-1.8.7s-2.3-.3-3.8-1.3c-1.5-.9-2.8-2.2-3.7-3.6C5.8 10.2 6 9 6 8.6c0-.7.4-1.4.8-1.8Z"></path>
+                </svg>
+                واتساب
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer>
+        <span>© <span id="year"></span> الأسد لخدمات التنظيف</span>
+        <a class="designer" href="https://wa.me/201029095046" target="_blank" rel="noopener">
+          تم التصميم بواسطة م. نجوى إبراهيم <span class="heart" aria-hidden="true">♥</span>
+        </a>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
